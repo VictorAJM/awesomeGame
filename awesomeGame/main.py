@@ -1,6 +1,6 @@
 # Entry point
 
-from utils import parse_command
+from utils import parse_command, print_banner, get_prompt, clear_screen
 
 def show_help():
   print("exit    - Quit the game\nhelp    - Show this help message\n")
@@ -14,11 +14,12 @@ def handle_command(command, args):
     print("Unknown command. Type 'help' for a list of commands.")
 
 def main():
-
+  clear_screen()
+  print_banner()
   print("System online.\n")
 
   while True:
-    prompt = input("> ")
+    prompt = input(get_prompt())
     command, args = parse_command(prompt)
 
     if command == "exit":
